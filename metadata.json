@@ -1,0 +1,6 @@
+{
+  "name": "AIRA",
+  "description": "Real-Time Voice-to-Voice AI Assistant (Gemini Live API)",
+  "requestFramePermissions": ["microphone"],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
