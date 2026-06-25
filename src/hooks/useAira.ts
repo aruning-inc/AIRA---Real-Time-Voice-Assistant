@@ -16,10 +16,16 @@ export function useAira() {
   }, []);
 
   const connect = async () => {
-    if (!sessionRef.current) {
-      sessionRef.current = new LiveSession();
+    const setError = useAssistantStore.getState().setError;
+    try {
+      if (!sessionRef.current) {
+        sessionRef.current = new LiveSession();
+      }
+      await sessionRef.current.connect();
+    } catch (e: any) {
+      console.error("Connection failed:", e);
+      setError(e.message || "Failed to initialize connection.");
     }
-    await sessionRef.current.connect();
   };
 
   const disconnect = () => {
